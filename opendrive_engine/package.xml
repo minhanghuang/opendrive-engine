@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>opendrive_engine</name>
+  <version>0.0.0</version>
+  <description>The opendrive_engine package</description>
+
+  <maintainer email="job@minhang.me">huangminhang</maintainer>
+
+  <license>TODO</license>
+
+  <depend>tinyxml2</depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>
