@@ -10,9 +10,6 @@ namespace engine {
 
 struct Params {
   std::string opendrive_file_path;
-
- private:
-  DECLARE_SINGLETON(Params)
 };
 
 }  // namespace engine

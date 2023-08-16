@@ -12,6 +12,8 @@
 #include <iostream>
 #include <iterator>
 #include <map>
+#include <memory>
+#include <mutex>
 #include <set>
 #include <string>
 #include <type_traits>
@@ -20,6 +22,29 @@
 
 namespace opendrive {
 namespace common {
+
+class Singleton {
+ public:
+  template <typename T>
+  static std::shared_ptr<T> Instance() {
+    static std::shared_ptr<T> instance = nullptr;
+    if (!instance) {
+      static std::once_flag flag;
+      std::call_once(flag, [&] { instance = std::make_shared<T>(); });
+    }
+    return instance;
+  }
+
+  Singleton(const Singleton&) = delete;
+  Singleton& operator=(const Singleton&) = delete;
+
+  Singleton(Singleton&&) = delete;
+  Singleton& operator=(Singleton&&) = delete;
+
+ private:
+  Singleton();
+  ~Singleton();
+};
 
 template <typename T>
 static T SpeedMPH2KMH(T mph) {

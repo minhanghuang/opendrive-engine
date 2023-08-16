@@ -24,19 +24,16 @@
   void set_##var(const type& var) noexcept { var##_ = var; } \
   void set_##var(type&& var) noexcept { var##_ = std::move(var); }
 
-#define REGISTER_MEMBER_SHARED_PTR(type, ptr)                              \
- private:                                                                  \
-  std::shared_ptr<type> ptr##_;                                            \
-                                                                           \
- public:                                                                   \
-  std::shared_ptr<type const> pointer() const noexcept { return ptr##_; }  \
-  std::shared_ptr<type> mutable_##pointer() noexcept { return ptr##_; }    \
-  void set_##pointer(std::shared_ptr<type> ptr) noexcept { ptr##_ = ptr; } \
-  void set_##pointer(const std::shared_ptr<type>& ptr) noexcept {          \
-    ptr##_ = ptr;                                                          \
-  }                                                                        \
-  void set_##pointer(std::shared_ptr<type>&& ptr) noexcept {               \
-    ptr##_ = std::move(ptr);                                               \
+#define REGISTER_MEMBER_SHARED_PTR(type, ptr)                                 \
+ private:                                                                     \
+  std::shared_ptr<type> ptr##_;                                               \
+                                                                              \
+ public:                                                                      \
+  std::shared_ptr<type const> ptr() const noexcept { return ptr##_; }         \
+  std::shared_ptr<type> mutable_##ptr() noexcept { return ptr##_; }           \
+  void set_##ptr(const std::shared_ptr<type>& ptr) noexcept { ptr##_ = ptr; } \
+  void set_##ptr(std::shared_ptr<type>&& ptr) noexcept {                      \
+    ptr##_ = std::move(ptr);                                                  \
   }
 
 #define DEFINE_TYPE_TRAIT(name, func)                     \

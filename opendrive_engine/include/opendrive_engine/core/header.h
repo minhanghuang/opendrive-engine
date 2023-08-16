@@ -12,14 +12,14 @@ namespace core {
 class Header {
   REGISTER_MEMBER_COMPLEX_TYPE(std::string, rev_major);
   REGISTER_MEMBER_COMPLEX_TYPE(std::string, rev_minor);
-  REGISTER_MEMBER_COMPLEX_TYPE(std::string, name);
   REGISTER_MEMBER_COMPLEX_TYPE(std::string, version);
+  REGISTER_MEMBER_COMPLEX_TYPE(std::string, name);
   REGISTER_MEMBER_COMPLEX_TYPE(std::string, date);
   REGISTER_MEMBER_COMPLEX_TYPE(std::string, vendor);
   REGISTER_MEMBER_BASIC_TYPE(double, north, 0.0);
   REGISTER_MEMBER_BASIC_TYPE(double, south, 0.0);
-  REGISTER_MEMBER_BASIC_TYPE(double, west, 0.0);
   REGISTER_MEMBER_BASIC_TYPE(double, east, 0.0);
+  REGISTER_MEMBER_BASIC_TYPE(double, west, 0.0);
 
  public:
   using Ptr = std::shared_ptr<Header>;

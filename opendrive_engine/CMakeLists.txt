@@ -48,6 +48,14 @@ target_link_libraries(${TARGET_NAME}
 )
 
 #############
+##  Test   ##
+#############
+
+if(${ENABLE_TEST})
+  add_subdirectory(test)
+endif(${ENABLE_TEST})
+
+#############
 ## Install ##
 #############
 

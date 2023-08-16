@@ -3,7 +3,9 @@
 namespace opendrive {
 namespace engine {
 
-Engine::Engine() {}
+Status Engine::Init() { return impl_->Init(); }
+
+core::Header::ConstPtr Engine::GetHeader() { return impl_->GetHeader(); }
 
 }  // namespace engine
 }  // namespace opendrive
