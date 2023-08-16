@@ -12,7 +12,7 @@ enum class ErrorCode {
   // OpenDRIVE File exception
   kLoadOpenDriveFileError = 100,
 
-  // XML File Exception
+  // Parser Header Exception
   kEngineParserXmlHeaderError = 110,
 };
 

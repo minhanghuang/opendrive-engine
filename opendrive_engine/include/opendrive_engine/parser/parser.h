@@ -8,6 +8,7 @@
 #include "opendrive_engine/common/status.h"
 #include "opendrive_engine/core/map.h"
 #include "opendrive_engine/parser/header_parser.h"
+#include "opendrive_engine/parser/junction_parser.h"
 
 namespace opendrive {
 namespace engine {

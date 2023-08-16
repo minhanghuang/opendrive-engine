@@ -33,6 +33,11 @@ class ParserBase {
       double* value) {
     return xml_element->QueryDoubleAttribute(name.c_str(), value);
   }
+  tinyxml2::XMLError XmlQueryIntAttribute(
+      const tinyxml2::XMLElement* xml_element, const std::string& name,
+      int* value) {
+    return xml_element->QueryIntAttribute(name.c_str(), value);
+  }
 
  protected:
   // opendrive map data

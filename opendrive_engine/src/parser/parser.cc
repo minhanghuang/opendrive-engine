@@ -32,6 +32,12 @@ Status Parser::Start() {
   HeaderParser header_parser;
   header_parser.Start(xml_element, map_);
 
+  // parser junction
+  JunctionParser junction_parser;
+  junction_parser.Start(xml_element, map_);
+  
+  // parser road
+
   return status_;
 }
 
