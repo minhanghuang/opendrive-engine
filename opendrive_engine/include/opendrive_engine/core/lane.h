@@ -25,17 +25,16 @@ class Curve {
      *  right boundary point id: 9_3
      */
     REGISTER_MEMBER_COMPLEX_TYPE(Id, id);
-    REGISTER_MEMBER_BASIC_TYPE(double, start_position, 0);
+    REGISTER_MEMBER_BASIC_TYPE(double, start_position, 0.0);
 
    public:
-    Point() : start_position_(0), id_("") {}
-    Point(double x, double y) : Point4D(x, y), start_position_(0), id_("") {}
-    Point(double x, double y, double z)
-        : Point4D(x, y, z), start_position_(0), id_("") {}
+    Point() {}
+    Point(double x, double y) : Point4D(x, y) {}
+    Point(double x, double y, double z) : Point4D(x, y, z) {}
     Point(double x, double y, double z, double heading)
-        : Point4D(x, y, z, heading), start_position_(0), id_("") {}
+        : Point4D(x, y, z, heading) {}
     Point(double x, double y, double z, double heading, double start_position)
-        : Point4D(x, y, z, heading), start_position_(start_position), id_("") {}
+        : Point4D(x, y, z, heading), start_position_(start_position) {}
     Point(double x, double y, double z, double heading, double start_position,
           const Id& id)
         : Point4D(x, y, z, heading), start_position_(start_position), id_(id) {}
@@ -53,8 +52,7 @@ class LaneBoundaryAttr {
 
  public:
   LaneBoundaryAttr()
-      : start_position_(0),
-        boundary_type_(RoadMarkType::kNone),
+      : boundary_type_(RoadMarkType::kNone),
         boundary_color_(RoadMarkColor::kStandard) {}
 };
 using LaneBoundaryAttrs = std::vector<LaneBoundaryAttr>;
@@ -77,19 +75,6 @@ class SpeedLimit {
 };
 using SpeedLimits = std::vector<SpeedLimit>;
 
-class Geometry {
-  REGISTER_MEMBER_COMPLEX_TYPE(opendrive::GeometryType, type);
-  /*
-   * 参考线车道 中线
-   */
-  REGISTER_MEMBER_COMPLEX_TYPE(Curve::Point, point);
-
- public:
-  using Type = opendrive::GeometryType;
-  Geometry() : type_(Type::kLine) {}
-};
-using Geometrys = std::vector<Geometry>;
-
 class Lane {
   REGISTER_MEMBER_COMPLEX_TYPE(Id, id);
   REGISTER_MEMBER_COMPLEX_TYPE(Id, parent_id);
@@ -100,7 +85,6 @@ class Lane {
   REGISTER_MEMBER_COMPLEX_TYPE(Curve, central_curve);
   REGISTER_MEMBER_COMPLEX_TYPE(LaneBoundary, left_boundary);
   REGISTER_MEMBER_COMPLEX_TYPE(LaneBoundary, right_boundary);
-  REGISTER_MEMBER_COMPLEX_TYPE(Geometrys, geometrys);
 
  public:
   using Ptr = std::shared_ptr<Lane>;

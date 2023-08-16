@@ -38,13 +38,17 @@ class ParserBase {
       int* value) {
     return xml_element->QueryIntAttribute(name.c_str(), value);
   }
+  const tinyxml2::XMLElement* XmlNextSiblingElement(
+      const tinyxml2::XMLElement* element) {
+    return element->NextSiblingElement(element->Name());
+  }
 
  protected:
   // opendrive map data
   std::shared_ptr<core::Map> map_;
 
   // status
-  Status status_{ErrorCode::kUnknown};
+  Status status_{ErrorCode::kOk};
 };
 
 }  // namespace engine

@@ -7,19 +7,21 @@ namespace opendrive {
 
 enum class ErrorCode {
   kOk = 0,
-  kUnknown = 1,
 
   // OpenDRIVE File exception
   kLoadOpenDriveFileError = 100,
 
   // Parser Header Exception
   kEngineParserXmlHeaderError = 110,
+
+  // Parser Road Exception
+  kEngineParserXmlRoadError = 120,
 };
 
 class Status final {
  public:
   ~Status() = default;
-  Status() : error_code_(ErrorCode::kUnknown) {}
+  Status() : error_code_(ErrorCode::kOk) {}
   Status(ErrorCode error_code, const std::string& msg = "")
       : error_code_(error_code), msg_(msg) {}
 
@@ -32,7 +34,7 @@ class Status final {
   std::string msg() const { return msg_; }
 
   void Reset() {
-    error_code_ = ErrorCode::kUnknown;
+    error_code_ = ErrorCode::kOk;
     msg_.clear();
   }
 

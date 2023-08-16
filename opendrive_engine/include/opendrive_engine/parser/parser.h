@@ -31,7 +31,7 @@ class Parser {
   std::shared_ptr<core::Map> map_;
 
   // status
-  Status status_{ErrorCode::kUnknown};
+  Status status_{ErrorCode::kOk};
 };
 
 }  // namespace engine

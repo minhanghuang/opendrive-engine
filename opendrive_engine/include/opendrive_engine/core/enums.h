@@ -16,7 +16,7 @@ enum class GeometryType : std::uint8_t {
 };
 
 enum class LaneType : std::uint8_t {
-  kSholder = 0,  // Describes a soft border at the edge of the road.
+  kShoulder = 0,  // Describes a soft border at the edge of the road.
   kBorder,   // Describes a hard border at the edge of the road. It has the same
              // height as the drivable lane.
   kDriving,  // Describes a "normal" drivable road that is not one of the other
@@ -64,11 +64,11 @@ enum class RoadMarkType : std::uint8_t {
   kNone,
   kSolid,
   kBroken,
-  kSolidsolid,
-  kSolidbroken,
-  kBrokensolid,
-  kBrokenbroken,
-  kBottsdots,
+  kSolidSolid,
+  kSolidBroken,
+  kBrokenSolid,
+  kBrokenBroken,
+  kBottsDots,
   kGrass,
   kCurb,
   kCustom,
